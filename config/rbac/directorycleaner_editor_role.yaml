@@ -1,0 +1,31 @@
+# permissions for end users to edit directorycleaners.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: directorycleaner-editor-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: abc
+    app.kubernetes.io/part-of: abc
+    app.kubernetes.io/managed-by: kustomize
+  name: directorycleaner-editor-role
+rules:
+- apiGroups:
+  - cleanup.example.com
+  resources:
+  - directorycleaners
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - cleanup.example.com
+  resources:
+  - directorycleaners/status
+  verbs:
+  - get

@@ -1,0 +1,16 @@
+apiVersion: cleanup.example.com/v1
+kind: DirectoryCleaner
+metadata:
+  labels:
+    app.kubernetes.io/name: directorycleaner
+    app.kubernetes.io/instance: directorycleaner-sample
+    app.kubernetes.io/part-of: abc
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: abc
+  name: directorycleaner-sample
+spec:
+  paths:
+    - "/tmp/cleanup"
+    - "/var/log/old-logs"
+  recursive: true
+  force: false
